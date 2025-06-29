@@ -1,0 +1,14 @@
+/* safe-area padding */
+body {
+  padding: env(safe-area-inset);
+  /* existing styles… */
+}
+/* focus-visible for keyboard users */
+:focus-visible {
+  outline: 2px dashed #66ffff;
+  outline-offset: 2px;
+}
+/* ensure chatToggle & customBtn are focusable */
+#chatToggle, #customizeBtn {
+  cursor: pointer;
+}
