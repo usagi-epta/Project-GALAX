@@ -1,0 +1,450 @@
+{
+  "bodyTypeName": "teen",
+  "url": "https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_light&head=Human_female_small_light&sex=teen&tail=none_Cat_Tail&wings=Monarch_Wings_sky&wings_edge=Monarch_Wings_Edge_sky&wings_dots=Monarch_Wings_Dots_rose&eye_color=Eye_Color_red&expression=Neutral_light&ears=Elven_ears_light&hair=Relm_XLong_rose&horns=Backwards_Horns_raven&earrings=Moon_earrings_bronze&facial_mask=none_Plain_Mask&charm=none_Star_Charm&necklace=Simple_Necklace_brass&bauldron=Bauldron_leather&clothes=Cardigan_bluegray&overalls=Overalls_rose&shoes=Sandals_sky&weapon=Gnarled_staff_dark&shield=none_Heater_Shield_Base&weapon_magic_crystal=Crystal_blue",
+  "spritesheets": "https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/spritesheets/",
+  "version": 1,
+  "datetime": "30/6/2025, 4:20:48 pm",
+  "credits": [
+    {
+      "fileName": "body/bodies/teen/light.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 3.0",
+      "authors": "bluecarrot16,Evert,TheraHedwig,Benjamin K. Smith (BenCreating),MuffinElZangano,Durrani,Pierre Vigier (pvigier),Eliza Wyatt (ElizaWy),Matthew Krohn (makrohn),Johannes Sjölund (wulax),Stephen Challener (Redshrike)",
+      "urls": "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles,https://opengameart.org/content/lpc-medieval-fantasy-character-sprites,https://opengameart.org/content/lpc-ladies,https://opengameart.org/content/lpc-teen-unisex-base-clothes,https://opengameart.org/content/lpc-jump-expanded,https://opengameart.org/content/lpc-revised-character-basics,https://opengameart.org/content/lpc-be-seated,https://gitlab.com/vagabondgame/lpc-characters,https://opengameart.org/content/lpc-male-jumping-animation-by-durrani,https://opengameart.org/content/lpc-jump-expanded",
+      "notes": "see details at https://opengameart.org/content/lpc-character-bases; 'Thick' Male Revised Run/Climb by JaidynReiman (based on ElizaWy's LPC Revised)"
+    },
+    {
+      "fileName": "body/wings/monarch/base/fg/sky.png",
+      "licenses": "OGA-BY 4.0,CC-BY-SA 4.0",
+      "authors": "The Foreman",
+      "urls": "https://opengameart.org/content/lpc-fairy-wings",
+      "notes": "In dedication to my grandmother, Sharon Rowe"
+    },
+    {
+      "fileName": "body/wings/monarch/base/bg/sky.png",
+      "licenses": "OGA-BY 4.0,CC-BY-SA 4.0",
+      "authors": "The Foreman",
+      "urls": "https://opengameart.org/content/lpc-fairy-wings",
+      "notes": "In dedication to my grandmother, Sharon Rowe"
+    },
+    {
+      "fileName": "body/wings/monarch/edge/fg/sky.png",
+      "licenses": "OGA-BY 4.0,CC-BY-SA 4.0",
+      "authors": "The Foreman",
+      "urls": "https://opengameart.org/content/lpc-fairy-wings",
+      "notes": "In dedication to my grandmother, Sharon Rowe"
+    },
+    {
+      "fileName": "body/wings/monarch/edge/bg/sky.png",
+      "licenses": "OGA-BY 4.0,CC-BY-SA 4.0",
+      "authors": "The Foreman",
+      "urls": "https://opengameart.org/content/lpc-fairy-wings",
+      "notes": "In dedication to my grandmother, Sharon Rowe"
+    },
+    {
+      "fileName": "body/wings/monarch/dots/fg/rose.png",
+      "licenses": "OGA-BY 4.0,CC-BY-SA 4.0",
+      "authors": "The Foreman",
+      "urls": "https://opengameart.org/content/lpc-fairy-wings",
+      "notes": "In dedication to my grandmother, Sharon Rowe"
+    },
+    {
+      "fileName": "body/wings/monarch/dots/bg/rose.png",
+      "licenses": "OGA-BY 4.0,CC-BY-SA 4.0",
+      "authors": "The Foreman",
+      "urls": "https://opengameart.org/content/lpc-fairy-wings",
+      "notes": "In dedication to my grandmother, Sharon Rowe"
+    },
+    {
+      "fileName": "head/heads/human/female_small/light.png",
+      "licenses": "OGA-BY 3.0,CC-BY",
+      "authors": "ElizaWy,Stephen Challener (Redshrike)",
+      "urls": "",
+      "notes": "original head by Redshrike, reduced size head by ElizaWy"
+    },
+    {
+      "fileName": "head/faces/female/neutral/light.png",
+      "licenses": "OGA-BY 3.0",
+      "authors": "JaidynReiman,ElizaWy,Stephen Challener (Redshrike)",
+      "urls": "https://github.com/ElizaWy/LPC/tree/main/Characters/Head,https://opengameart.org/content/ulpc-expanded-expressions",
+      "notes": "Original by Redshrike, Expressions by ElizaWy, mapped to all frames by JaidynReiman"
+    },
+    {
+      "fileName": "eyes/human/adult/neutral/red.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 3.0",
+      "authors": "JaidynReiman,Matthew Krohn (makrohn),Stephen Challener (Redshrike)",
+      "urls": "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles",
+      "notes": "original by Redshrike, mapped to all frames by Matthew Krohn & JaidynReiman"
+    },
+    {
+      "fileName": "head/ears/elven/adult/light.png",
+      "licenses": "GPL 3.0,CC-BY-SA 3.0",
+      "authors": "JaidynReiman,bluecarrot16,Thane Brimhall (pennomi),laetissima,Matthew Krohn (makrohn),JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-base-character-expressions,http://opengameart.org/content/lpc-clothing-updates",
+      "notes": "adapted to v3 base by bluecarrot16; expanded to other animations and child by JaidynReiman"
+    },
+    {
+      "fileName": "hair/relm_xlong/adult/fg/rose.png",
+      "licenses": "OGA-BY 3.0+,CC-BY 3.0+,GPL 3.0",
+      "authors": "JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-expanded-xlong-hair",
+      "notes": ""
+    },
+    {
+      "fileName": "hair/relm_xlong/adult/bg/rose.png",
+      "licenses": "OGA-BY 3.0+,CC-BY 3.0+,GPL 3.0",
+      "authors": "JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-expanded-xlong-hair",
+      "notes": ""
+    },
+    {
+      "fileName": "head/horns/backwards/adult/fg/raven.png",
+      "licenses": "OGA-BY 3.0,GPL 3.0,CC-BY-SA 3.0",
+      "authors": "Nila122",
+      "urls": "https://opengameart.org/content/lpc-lizard-headgear",
+      "notes": ""
+    },
+    {
+      "fileName": "head/horns/backwards/adult/bg/raven.png",
+      "licenses": "OGA-BY 3.0,GPL 3.0,CC-BY-SA 3.0",
+      "authors": "Nila122",
+      "urls": "https://opengameart.org/content/lpc-lizard-headgear",
+      "notes": ""
+    },
+    {
+      "fileName": "facial/earrings/moon/female/bronze.png",
+      "licenses": "CC0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-jewelry",
+      "notes": ""
+    },
+    {
+      "fileName": "neck/necklace/simple/female/brass.png",
+      "licenses": "CC0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-jewelry",
+      "notes": ""
+    },
+    {
+      "fileName": "bauldron/female/leather.png",
+      "licenses": "GPL 2.0,GPL 3.0,OGA-BY 3.0,CC-BY-SA 3.0",
+      "authors": "Nila122",
+      "urls": "https://opengameart.org/content/more-lpc-clothes-and-hair",
+      "notes": ""
+    },
+    {
+      "fileName": "torso/clothes/longsleeve/longsleeve2_cardigan/teen/bluegray.png",
+      "licenses": "OGA-BY 3.0",
+      "authors": "ElizaWy,JaidynReiman,Stephen Challener (Redshrike),Johannes Sjölund (wulax)",
+      "urls": "http://opengameart.org/content/lpc-revised-character-basics,https://github.com/ElizaWy/LPC/tree/main/Characters/Clothing,https://opengameart.org/content/lpc-expanded-sit-run-jump-more",
+      "notes": "original by ElizaWy; spellcast/thrust/shoot/hurt adapted from original by JaidynReiman"
+    },
+    {
+      "fileName": "torso/aprons/overalls/teen/rose.png",
+      "licenses": "OGA-BY 3.0,GPL 3.0",
+      "authors": "ElizaWy,bluecarrot16,JaidynReiman",
+      "urls": "https://opengameart.org/content/lpc-revised-character-basics,http://opengameart.org/content/lpc-clothing-updates",
+      "notes": "original overalls by ElizaWy, extended to all animation frames, adapted from teen to male base, and edited for v3 bases by bluecarrot16; extended to combat animations by JaidynReiman"
+    },
+    {
+      "fileName": "feet/sandals/thin/sky.png",
+      "licenses": "OGA-BY 3.0,CC-BY-SA 3.0,GPL 2.0,GPL 3.0",
+      "authors": "Nila122,JaidynReiman,Matthew Krohn (makrohn),Johannes Sjölund (wulax)",
+      "urls": "https://opengameart.org/content/lpc-roman-armor,http://opengameart.org/content/lpc-clothing-updates,https://opengameart.org/content/lpc-expanded-socks-shoes",
+      "notes": "edited for v3 bases by bluecarrot16, Jump/Sit/Emote/Run/Revised Combat by JaidynReiman"
+    },
+    {
+      "fileName": "weapon/magic/gnarled/universal/foreground/dark.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/gnarled/universal/background/dark.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/gnarled/thrust/foreground/dark.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/gnarled/thrust/background/dark.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/crystal/universal/foreground/blue.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/crystal/universal/background/blue.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/crystal/thrust/foreground/blue.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    },
+    {
+      "fileName": "weapon/magic/crystal/thrust/background/blue.png",
+      "licenses": "OGA-BY 3.0+,GPL 3.0,CC-BY 4.0",
+      "authors": "bluecarrot16",
+      "urls": "https://opengameart.org/content/lpc-more-weapons",
+      "notes": ""
+    }
+  ],
+  "layers": [
+    {
+      "fileName": "weapon/magic/gnarled/thrust/background/dark.png",
+      "zPos": -1,
+      "custom_animation": "thrust_oversize",
+      "parentName": "weapon",
+      "name": "Gnarled_staff",
+      "variant": "dark",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "weapon/magic/crystal/thrust/background/blue.png",
+      "zPos": -1,
+      "custom_animation": "thrust_oversize",
+      "parentName": "weapon_magic_crystal",
+      "name": "Crystal",
+      "variant": "blue",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/wings/monarch/base/bg/sky.png",
+      "zPos": 5,
+      "parentName": "wings",
+      "name": "Monarch_Wings",
+      "variant": "sky",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/wings/monarch/edge/bg/sky.png",
+      "zPos": 6,
+      "parentName": "wings_edge",
+      "name": "Monarch_Wings_Edge",
+      "variant": "sky",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/wings/monarch/dots/bg/rose.png",
+      "zPos": 6,
+      "parentName": "wings_dots",
+      "name": "Monarch_Wings_Dots",
+      "variant": "rose",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "head/horns/backwards/adult/bg/raven.png",
+      "zPos": 7,
+      "parentName": "horns",
+      "name": "Backwards_Horns",
+      "variant": "raven",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "hair/relm_xlong/adult/bg/rose.png",
+      "zPos": 9,
+      "parentName": "hair",
+      "name": "Relm_XLong",
+      "variant": "rose",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "weapon/magic/gnarled/universal/background/dark.png",
+      "zPos": 9,
+      "parentName": "weapon",
+      "name": "Gnarled_staff",
+      "variant": "dark",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "weapon/magic/crystal/universal/background/blue.png",
+      "zPos": 9,
+      "parentName": "weapon_magic_crystal",
+      "name": "Crystal",
+      "variant": "blue",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/bodies/teen/light.png",
+      "zPos": 10,
+      "parentName": "body",
+      "name": "Body_color",
+      "variant": "light",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "feet/sandals/thin/sky.png",
+      "zPos": 15,
+      "parentName": "shoes",
+      "name": "Sandals",
+      "variant": "sky",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "torso/clothes/longsleeve/longsleeve2_cardigan/teen/bluegray.png",
+      "zPos": 35,
+      "parentName": "clothes",
+      "name": "Cardigan",
+      "variant": "bluegray",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "torso/aprons/overalls/teen/rose.png",
+      "zPos": 38,
+      "parentName": "overalls",
+      "name": "Overalls",
+      "variant": "rose",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "bauldron/female/leather.png",
+      "zPos": 65,
+      "parentName": "bauldron",
+      "name": "Bauldron",
+      "variant": "leather",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "neck/necklace/simple/female/brass.png",
+      "zPos": 80,
+      "parentName": "necklace",
+      "name": "Simple_Necklace",
+      "variant": "brass",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "head/heads/human/female_small/light.png",
+      "zPos": 100,
+      "parentName": "head",
+      "name": "Human_female_small",
+      "variant": "light",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "head/faces/female/neutral/light.png",
+      "zPos": 101,
+      "parentName": "expression",
+      "name": "Neutral",
+      "variant": "light",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "body/wings/monarch/base/fg/sky.png",
+      "zPos": 105,
+      "parentName": "wings",
+      "name": "Monarch_Wings",
+      "variant": "sky",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "eyes/human/adult/neutral/red.png",
+      "zPos": 105,
+      "parentName": "eye_color",
+      "name": "Eye_Color",
+      "variant": "red",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "body/wings/monarch/edge/fg/sky.png",
+      "zPos": 106,
+      "parentName": "wings_edge",
+      "name": "Monarch_Wings_Edge",
+      "variant": "sky",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "body/wings/monarch/dots/fg/rose.png",
+      "zPos": 106,
+      "parentName": "wings_dots",
+      "name": "Monarch_Wings_Dots",
+      "variant": "rose",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "facial/earrings/moon/female/bronze.png",
+      "zPos": 115,
+      "parentName": "earrings",
+      "name": "Moon_earrings",
+      "variant": "bronze",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "hair/relm_xlong/adult/fg/rose.png",
+      "zPos": 120,
+      "parentName": "hair",
+      "name": "Relm_XLong",
+      "variant": "rose",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "head/ears/elven/adult/light.png",
+      "zPos": 126,
+      "parentName": "ears",
+      "name": "Elven_ears",
+      "variant": "light",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "head/horns/backwards/adult/fg/raven.png",
+      "zPos": 126,
+      "parentName": "horns",
+      "name": "Backwards_Horns",
+      "variant": "raven",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering,idle,jump,run,sit,emote,climb,combat,1h_slash,1h_backslash,1h_halfslash"
+    },
+    {
+      "fileName": "weapon/magic/gnarled/universal/foreground/dark.png",
+      "zPos": 140,
+      "parentName": "weapon",
+      "name": "Gnarled_staff",
+      "variant": "dark",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "weapon/magic/crystal/universal/foreground/blue.png",
+      "zPos": 140,
+      "parentName": "weapon_magic_crystal",
+      "name": "Crystal",
+      "variant": "blue",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "weapon/magic/gnarled/thrust/foreground/dark.png",
+      "zPos": 150,
+      "custom_animation": "thrust_oversize",
+      "parentName": "weapon",
+      "name": "Gnarled_staff",
+      "variant": "dark",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    },
+    {
+      "fileName": "weapon/magic/crystal/thrust/foreground/blue.png",
+      "zPos": 150,
+      "custom_animation": "thrust_oversize",
+      "parentName": "weapon_magic_crystal",
+      "name": "Crystal",
+      "variant": "blue",
+      "supportedAnimations": "spellcast,thrust,walk,slash,shoot,hurt,watering"
+    }
+  ]
+}
