@@ -1,0 +1,38 @@
+{
+“name”: “GALAX Social Community”,
+“short_name”: “GALAX”,
+“description”: “Real-time social community platform with advanced collaboration features”,
+“start_url”: “/”,
+“display”: “standalone”,
+“background_color”: “#4ecdc4”,
+“theme_color”: “#4ecdc4”,
+“orientation”: “portrait”,
+“scope”: “/”,
+“icons”: [
+{
+“src”: “data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%234ecdc4'/><text x='96' y='120' font-size='120' text-anchor='middle' fill='white'>💬</text></svg>”,
+“sizes”: “192x192”,
+“type”: “image/svg+xml”
+},
+{
+“src”: “data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%234ecdc4'/><text x='256' y='320' font-size='320' text-anchor='middle' fill='white'>💬</text></svg>”,
+“sizes”: “512x512”,
+“type”: “image/svg+xml”
+}
+],
+“categories”: [“social”, “communication”],
+“shortcuts”: [
+{
+“name”: “New Chat”,
+“short_name”: “Chat”,
+“description”: “Start a new conversation”,
+“url”: “/?action=chat”,
+“icons”: [
+{
+“src”: “data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='90'>💬</text></svg>”,
+“sizes”: “96x96”
+}
+]
+}
+]
+}
