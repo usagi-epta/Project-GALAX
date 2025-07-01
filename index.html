@@ -10,17 +10,19 @@
     <meta name="apple-mobile-web-app-title" content="GALAX">
 
 ```
-<title>GALAX - Social Community</title>
-
 <!-- PWA Manifest -->
-<link rel="manifest" id="pwa-manifest">
+<link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
 
+<title>GALAX - Social Community</title>
+
 <!-- Stylesheets -->
-<link rel="stylesheet" href="styles/main.css">
-<link rel="stylesheet" href="styles/components.css">
-<link rel="stylesheet" href="styles/animations.css">
-<link rel="stylesheet" href="styles/responsive.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<!-- External Libraries -->
+<script src="js/libs/graphics-loader.js"></script>
 ```
 
 </head>
@@ -40,7 +42,7 @@
             </div>
 
 ```
-        <form class="login-form" onsubmit="login(event)">
+        <form class="login-form" onsubmit="App.login(event)">
             <div class="form-group">
                 <label>ID</label>
                 <input type="text" placeholder="Enter your username" value="Ninomiya" id="userId" required>
@@ -80,7 +82,7 @@
                         <circle cx="12" cy="12" r="3"/>
                     </svg>
                 </button>
-                <button class="header-btn" onclick="logout()">
+                <button class="header-btn" onclick="App.logout()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                         <polyline points="16,17 21,12 16,7"/>
@@ -91,24 +93,149 @@
         </div>
 
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('chats')">Chats</button>
-            <button class="nav-tab" onclick="switchTab('timeline')">Timeline</button>
-            <button class="nav-tab" onclick="switchTab('community')">Community</button>
+            <button class="nav-tab active" onclick="Navigation.switchTab('chats')">Chats</button>
+            <button class="nav-tab" onclick="Navigation.switchTab('timeline')">Timeline</button>
+            <button class="nav-tab" onclick="Navigation.switchTab('community')">Community</button>
         </div>
 
         <div class="content">
-            <!-- Content sections will be loaded here -->
-            <div id="chatsContent" class="tab-content active"></div>
-            <div id="timelineContent" class="tab-content"></div>
-            <div id="communityContent" class="tab-content"></div>
-            <div id="newsContent" class="tab-content"></div>
-            <div id="groupsContent" class="tab-content"></div>
-            <div id="gamesContent" class="tab-content"></div>
-            <div id="profileContent" class="tab-content"></div>
+            <!-- Chats Tab -->
+            <div id="chatsContent" class="tab-content active">
+                <div class="chat-item" onclick="Chat.openChat('Dash Jeong')">
+                    <div class="chat-avatar">DJ</div>
+                    <div class="chat-info">
+                        <div class="chat-name">Dash Jeong</div>
+                        <div class="chat-message">Hey! Ready for tonight's mission?</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="chat-time">2m ago</div>
+                        <div class="chat-badge">2</div>
+                    </div>
+                </div>
+
+                <div class="chat-item" onclick="Chat.openChat('Bella Kim')">
+                    <div class="chat-avatar">BK</div>
+                    <div class="chat-info">
+                        <div class="chat-name">Bella Kim</div>
+                        <div class="chat-message">Thanks for the upload!</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="chat-time">5m ago</div>
+                    </div>
+                </div>
+
+                <div class="chat-item" onclick="Chat.openChat('Community Hub')">
+                    <div class="chat-avatar">🌟</div>
+                    <div class="chat-info">
+                        <div class="chat-name">Community Hub</div>
+                        <div class="chat-message">New challenges available!</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="chat-time">1h ago</div>
+                        <div class="chat-badge">5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Tab -->
+            <div id="timelineContent" class="tab-content">
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-avatar"></div>
+                        <div>
+                            <div style="font-weight: bold;">Samuel</div>
+                            <div style="font-size: 12px; color: #666;">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just discovered this amazing design resource! Hope you all find it useful for your projects.</p>
+                        <div class="post-image">🎨</div>
+                    </div>
+                    <div class="post-actions">
+                        <button class="post-action">❤️ Like</button>
+                        <button class="post-action">💬 Comment</button>
+                        <button class="post-action">📤 Share</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Tab -->
+            <div id="communityContent" class="tab-content">
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background: linear-gradient(45deg, #9c27b0, #673ab7);"></div>
+                        <div>
+                            <div style="font-weight: bold;">Community Announcements</div>
+                            <div style="font-size: 12px; color: #666;">Pinned</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>Welcome to GALAX Community!</h3>
+                        <p>This is where creators, developers, and innovators come together to share ideas and build the future.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Tab -->
+            <div id="newsContent" class="tab-content">
+                <div class="news-section">
+                    <h3>Latest Updates</h3>
+                    <div class="news-item">
+                        <div class="news-header">
+                            <h4>Platform Enhancement v2.1 Released</h4>
+                            <span class="news-time">2 hours ago</span>
+                        </div>
+                        <p>New real-time collaboration features, improved performance, and enhanced security measures.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Groups Tab -->
+            <div id="groupsContent" class="tab-content">
+                <div class="groups-section">
+                    <h3>Your Groups</h3>
+                    <div class="group-item">
+                        <div class="group-avatar">TI</div>
+                        <div class="group-info">
+                            <div class="group-name">Tech Innovators</div>
+                            <div class="group-desc">127 members • Latest: WebAssembly discussion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Tab -->
+            <div id="gamesContent" class="tab-content">
+                <div class="games-section">
+                    <h3>Community Games</h3>
+                    <div class="game-item">
+                        <div class="game-icon">🎯</div>
+                        <div class="game-info">
+                            <div class="game-name">Code Challenge</div>
+                            <div class="game-desc">Daily programming puzzles • 45 participants today</div>
+                        </div>
+                        <button class="game-btn">Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profileContent" class="tab-content">
+                <div class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-avatar" id="profileAvatar"></div>
+                        <div class="profile-info">
+                            <h2 id="profileName">Ninomiya</h2>
+                            <p id="profileStatus">Online</p>
+                            <button class="edit-profile-btn" onclick="Profile.edit()">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="bottom-nav">
-            <button class="nav-item active" onclick="switchBottomTab('chats', this)">
+            <button class="nav-item active" onclick="Navigation.switchBottomTab('chats', this)">
                 <div class="nav-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
@@ -116,29 +243,24 @@
                 </div>
                 <div class="nav-label">Chats</div>
             </button>
-            <button class="nav-item" onclick="switchBottomTab('news', this)">
+            <button class="nav-item" onclick="Navigation.switchBottomTab('news', this)">
                 <div class="nav-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-                        <path d="M18 14h-8"/>
-                        <path d="M15 18h-5"/>
-                        <path d="M10 6h8"/>
                     </svg>
                 </div>
                 <div class="nav-label">News</div>
             </button>
-            <button class="nav-item" onclick="switchBottomTab('groups', this)">
+            <button class="nav-item" onclick="Navigation.switchBottomTab('groups', this)">
                 <div class="nav-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                         <circle cx="9" cy="7" r="4"/>
-                        <path d="m22 21-3-3"/>
-                        <circle cx="18.5" cy="17.5" r="2.5"/>
                     </svg>
                 </div>
                 <div class="nav-label">Groups</div>
             </button>
-            <button class="nav-item" onclick="switchBottomTab('games', this)">
+            <button class="nav-item" onclick="Navigation.switchBottomTab('games', this)">
                 <div class="nav-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="6" x2="10" y1="12" y2="12"/>
@@ -150,7 +272,7 @@
                 </div>
                 <div class="nav-label">Games</div>
             </button>
-            <button class="nav-item" onclick="switchBottomTab('profile', this)">
+            <button class="nav-item" onclick="Navigation.switchBottomTab('profile', this)">
                 <div class="nav-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="1"/>
@@ -166,21 +288,19 @@
     <!-- Chat Screen -->
     <div class="screen chat-screen" id="chatScreen">
         <div class="chat-header">
-            <button class="back-btn" onclick="backToMain()">←</button>
+            <button class="back-btn" onclick="Chat.backToMain()">←</button>
             <div class="user-avatar"></div>
             <div>
                 <div style="font-weight: bold;" id="chatPartner">Dash Jeong</div>
                 <div style="font-size: 12px; color: #666;">Online</div>
             </div>
             <div style="margin-left: auto;">
-                <button class="header-btn" onclick="startVoiceCall()">
+                <button class="header-btn" onclick="Voice.startCall()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        <path d="M15 1h6v6"/>
-                        <path d="m21 1-6 6"/>
                     </svg>
                 </button>
-                <button class="header-btn" onclick="startVideoCall()">
+                <button class="header-btn" onclick="Voice.startVideoCall()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
                         <rect x="2" y="6" width="14" height="12" rx="2"/>
@@ -190,11 +310,21 @@
         </div>
 
         <div class="chat-messages" id="chatMessages">
-            <!-- Messages will be loaded here -->
+            <div class="message">
+                <div class="chat-avatar">DJ</div>
+                <div class="message-bubble">
+                    Hey! Ready for tonight's mission? We've got some interesting challenges lined up.
+                </div>
+            </div>
+            <div class="message own">
+                <div class="message-bubble">
+                    Absolutely! I've been working on some new techniques. Should be fun.
+                </div>
+            </div>
         </div>
 
         <div class="message-input">
-            <button class="header-btn" onclick="toggleDrawing()">
+            <button class="header-btn" onclick="Drawing.toggle()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m12 19 7-7 3 3-7 7-3-3z"/>
                     <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
@@ -202,19 +332,19 @@
                     <circle cx="11" cy="11" r="2"/>
                 </svg>
             </button>
-            <button class="voice-btn" onclick="toggleVoiceRecording()" id="voiceBtn">
+            <button class="voice-btn" onclick="Voice.toggleRecording()" id="voiceBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"/>
                     <circle cx="17" cy="7" r="5"/>
                 </svg>
             </button>
-            <button class="header-btn" onclick="attachFile()">
+            <button class="header-btn" onclick="Files.attach()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
                 </svg>
             </button>
-            <input type="text" class="message-field" placeholder="Type a message..." id="messageInput" onkeypress="sendMessageOnEnter(event)" oninput="handleTyping()">
-            <button class="send-btn" onclick="sendMessage()">
+            <input type="text" class="message-field" placeholder="Type a message..." id="messageInput" onkeypress="Chat.sendMessageOnEnter(event)" oninput="Chat.handleTyping()">
+            <button class="send-btn" onclick="Chat.sendMessage()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m22 2-7 20-4-9-9-4Z"/>
                     <path d="M22 2 11 13"/>
@@ -228,33 +358,33 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Quick Sketch</h3>
-                <button onclick="closeDrawing()">✕</button>
+                <button onclick="Drawing.close()">✕</button>
             </div>
             <canvas id="drawingCanvas" class="interactive-canvas"></canvas>
             <div class="drawing-tools">
-                <button onclick="clearCanvas()">Clear</button>
+                <button onclick="Drawing.clearCanvas()">Clear</button>
                 <input type="color" id="colorPicker" value="#4ecdc4">
                 <input type="range" id="brushSize" min="1" max="10" value="2">
-                <button onclick="sendDrawing()">Send Sketch</button>
+                <button onclick="Drawing.send()">Send Sketch</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- External Libraries -->
-<script src="https://unpkg.com/konva@9/konva.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<!-- Application Scripts -->
-<script src="scripts/config.js"></script>
-<script src="scripts/state.js"></script>
-<script src="scripts/graphics.js"></script>
-<script src="scripts/avatars.js"></script>
-<script src="scripts/chat.js"></script>
-<script src="scripts/ui.js"></script>
-<script src="scripts/pwa.js"></script>
-<script src="scripts/main.js"></script>
+<!-- JavaScript Modules -->
+<script src="js/config.js"></script>
+<script src="js/utils/state.js"></script>
+<script src="js/utils/storage.js"></script>
+<script src="js/utils/graphics.js"></script>
+<script src="js/components/avatars.js"></script>
+<script src="js/components/chat.js"></script>
+<script src="js/components/drawing.js"></script>
+<script src="js/components/voice.js"></script>
+<script src="js/components/files.js"></script>
+<script src="js/components/navigation.js"></script>
+<script src="js/components/profile.js"></script>
+<script src="js/components/notifications.js"></script>
+<script src="js/main.js"></script>
 ```
 
 </body>
