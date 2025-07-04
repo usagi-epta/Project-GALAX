@@ -47,8 +47,18 @@ initializeNavigation() {
  * @param {HTMLElement} [element] - Tab element that triggered the switch
  */
 switchTab(tabName, element) {
+    // Support both desktop sidebar and mobile tab navigation
+    this.switchBottomTab(tabName, element);
+}
+
+/**
+ * Enhanced bottom tab switching with responsive support
+ * @param {string} tabName - Tab identifier
+ * @param {HTMLElement} [element] - Tab element that triggered the switch
+ */
+switchBottomTab(tabName, element) {
     // Validate tab name
-    const validTabs = ['chats', 'timeline', 'community'];
+    const validTabs = ['chats', 'timeline', 'community', 'news', 'groups', 'games', 'profile'];
     if (!validTabs.includes(tabName)) {
         console.warn(`Invalid tab name: ${tabName}`);
         return;
@@ -74,8 +84,37 @@ switchTab(tabName, element) {
     // Emit navigation event
     this.emitNavigationEvent('tabChanged', { from: this.currentTab, to: tabName });
     
+    // Trigger custom tab switch event for responsive components
+    const tabSwitchEvent = new CustomEvent('tabSwitch', {
+        detail: { tab: tabName, previousTab: this.currentTab }
+    });
+    document.dispatchEvent(tabSwitchEvent);
+    
+    // Update desktop content title
+    this.updateContentTitle(tabName);
+    
     // Handle tab-specific initialization
     this.handleTabSpecificActions(tabName);
+}
+
+/**
+ * Update desktop content title
+ * @param {string} tabName - Active tab name
+ */
+updateContentTitle(tabName) {
+    const contentTitle = document.getElementById('contentTitle');
+    if (contentTitle) {
+        const titles = {
+            chats: 'Chats',
+            timeline: 'Timeline', 
+            community: 'Community',
+            news: 'News',
+            groups: 'Groups',
+            games: 'Games',
+            profile: 'Profile'
+        };
+        contentTitle.textContent = titles[tabName] || tabName.charAt(0).toUpperCase() + tabName.slice(1);
+    }
 }
 
 /**
