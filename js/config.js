@@ -42,6 +42,25 @@ graphics: {
     }
 },
 
+// OCR Libraries
+ocr: {
+    tesseract: {
+        enabled: true,
+        localPath: './node_modules/tesseract.js/dist/tesseract.min.js',
+        workerOptions: {
+            logger: m => console.log(m)
+        },
+        languages: ['eng', 'fra', 'deu', 'spa', 'por', 'rus', 'jpn', 'chi_sim']
+    },
+    scribe: {
+        enabled: true,
+        localPath: './node_modules/scribe.js-ocr/scribe.js',
+        workerPath: './node_modules/scribe.js-ocr/lib/',
+        fontsPath: './node_modules/scribe.js-ocr/fonts/',
+        tesseractPath: './node_modules/scribe.js-ocr/tess/'
+    }
+},
+
 // Avatar Configuration
 avatars: {
     count: 4,
@@ -205,7 +224,9 @@ features: {
     customThemes: true,
     groupChat: true,
     games: true,
-    timeline: true
+    timeline: true,
+    ocr: true,
+    pdfOcr: true
 },
 
 // Performance Configuration

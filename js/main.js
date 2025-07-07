@@ -75,6 +75,12 @@ async initializeCoreServices() {
         await window.graphicsLoader.loadAll();
     }
     
+    // Initialize OCR system
+    if (window.OCRManager && CONFIG.features.ocr) {
+        await window.OCRManager.initialize();
+        console.log('OCR system initialized');
+    }
+    
     // Initialize state management
     if (window.stateManager) {
         this.setupStateSubscriptions();

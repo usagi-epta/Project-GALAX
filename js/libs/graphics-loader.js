@@ -2,7 +2,7 @@
 
 - Graphics Libraries Loader
 - Enterprise-grade dynamic loader for graphics libraries with comprehensive error handling
-- Supports Konva.js, PIXI.js, and Three.js with fallback mechanisms
+- Supports Konva.js, PIXI.js, Three.js, and OCR libraries (Tesseract.js, Scribe.js)
   */
 
 class GraphicsLoader {
@@ -10,7 +10,9 @@ constructor() {
 this.libraries = {
 konva: { loaded: false, available: false, version: null },
 pixi: { loaded: false, available: false, version: null },
-three: { loaded: false, available: false, version: null }
+three: { loaded: false, available: false, version: null },
+tesseract: { loaded: false, available: false, version: null },
+scribe: { loaded: false, available: false, version: null }
 };
 
 ```
@@ -65,6 +67,22 @@ detectExistingLibraries() {
                 version: window.THREE.REVISION || 'unknown' 
             };
         }
+        
+        if (window.Tesseract) {
+            this.libraries.tesseract = { 
+                loaded: true, 
+                available: true, 
+                version: window.Tesseract.version || 'unknown' 
+            };
+        }
+        
+        if (window.Scribe) {
+            this.libraries.scribe = { 
+                loaded: true, 
+                available: true, 
+                version: window.Scribe.version || 'unknown' 
+            };
+        }
     }
 }
 
@@ -100,7 +118,9 @@ async loadAll() {
     const loadPromises = [
         this.loadKonva().catch(error => ({ error, library: 'konva' })),
         this.loadPixi().catch(error => ({ error, library: 'pixi' })),
-        this.loadThree().catch(error => ({ error, library: 'three' }))
+        this.loadThree().catch(error => ({ error, library: 'three' })),
+        this.loadTesseract().catch(error => ({ error, library: 'tesseract' })),
+        this.loadScribe().catch(error => ({ error, library: 'scribe' }))
     ];
 
     try {
@@ -126,7 +146,7 @@ async loadAll() {
  */
 processLoadResults(results) {
     results.forEach((result, index) => {
-        const libraryNames = ['konva', 'pixi', 'three'];
+        const libraryNames = ['konva', 'pixi', 'three', 'tesseract', 'scribe'];
         const libraryName = libraryNames[index];
         
         if (result.status === 'fulfilled' && result.value !== false) {
@@ -206,6 +226,64 @@ async loadThree() {
     });
 
     this.loadingPromises.set('three', loadPromise);
+    return loadPromise;
+}
+
+/**
+ * Load Tesseract.js library with enhanced error handling
+ * @returns {Promise<boolean>} Promise that resolves with load status
+ */
+async loadTesseract() {
+    if (!CONFIG.features.ocr || !CONFIG.ocr.tesseract.enabled) {
+        this.log('info', 'Tesseract.js loading skipped (feature disabled)');
+        return false;
+    }
+
+    if (this.libraries.tesseract.loaded) {
+        return true;
+    }
+
+    if (this.loadingPromises.has('tesseract')) {
+        return this.loadingPromises.get('tesseract');
+    }
+
+    const loadPromise = this.loadLibrary({
+        name: 'tesseract',
+        url: CONFIG.ocr.tesseract.localPath,
+        globalCheck: () => window.Tesseract,
+        versionCheck: () => window.Tesseract?.version
+    });
+
+    this.loadingPromises.set('tesseract', loadPromise);
+    return loadPromise;
+}
+
+/**
+ * Load Scribe.js library with enhanced error handling
+ * @returns {Promise<boolean>} Promise that resolves with load status
+ */
+async loadScribe() {
+    if (!CONFIG.features.pdfOcr || !CONFIG.ocr.scribe.enabled) {
+        this.log('info', 'Scribe.js loading skipped (feature disabled)');
+        return false;
+    }
+
+    if (this.libraries.scribe.loaded) {
+        return true;
+    }
+
+    if (this.loadingPromises.has('scribe')) {
+        return this.loadingPromises.get('scribe');
+    }
+
+    const loadPromise = this.loadLibrary({
+        name: 'scribe',
+        url: CONFIG.ocr.scribe.localPath,
+        globalCheck: () => window.Scribe,
+        versionCheck: () => window.Scribe?.version
+    });
+
+    this.loadingPromises.set('scribe', loadPromise);
     return loadPromise;
 }
 
@@ -345,6 +423,8 @@ getCapabilities() {
         konva: this.libraries.konva.available,
         pixi: this.libraries.pixi.available,
         threeJS: this.libraries.three.available,
+        tesseract: this.libraries.tesseract.available,
+        scribe: this.libraries.scribe.available,
         offscreenCanvas: this.hasOffscreenCanvasSupport(),
         imageData: this.hasImageDataSupport()
     };
@@ -522,6 +602,10 @@ getLibrary(libraryName) {
             return window.PIXI;
         case 'three':
             return window.THREE;
+        case 'tesseract':
+            return window.Tesseract;
+        case 'scribe':
+            return window.Scribe;
         default:
             return null;
     }
